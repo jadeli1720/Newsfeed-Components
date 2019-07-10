@@ -115,18 +115,22 @@ TEMPLATE:
 
 const articles = document.querySelector('.articles')
 
-articles.appendChild(createArticle())
+data.map(data => {
+  console.log('creating article:', data.title )
+  articles.appendChild(createArticle(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
+})
 
-function createArticle() {
+
+function createArticle(title, date, para1, para2, para3) {
   //use createElement to make new elements on the DOM
   const article = document.createElement('div');
-  const title = document.createElement('h2')
+  const articleTitle = document.createElement('h2')
   const paraDate = document.createElement('p')
   // const paragraph = document.createElement('p') //There will be 3. Do I need to create them individually here?
   const button = document.createElement('span')
 
-  //Set up structure of elements so they apper in DOM
-  article.appendChild(title)
+  //Set up structure of elements so they appear in DOM
+  article.appendChild(articleTitle)
   article.appendChild(paraDate)
   // paraDate.appendChild(paragraph)
   article.appendChild(button)
@@ -135,6 +139,10 @@ function createArticle() {
   article.classList.add('article')
   paraDate.classList.add('date')
   button.classList.add('expandButton')
+
+  //Set text content
+  articleTitle.textContent = title
+  paraDate.textContent = date
 
 //Returns the DOM ELEMENT (makes above items visible) when function is called.
   return article
