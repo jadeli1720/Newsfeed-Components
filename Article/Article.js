@@ -109,49 +109,62 @@ TEMPLATE:
 
   Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
 
-  Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
+  Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article
 
 */
 
-const articles = document.querySelector('.articles')
+const articles = document.querySelector('.articles');
 
 data.map(data => {
-  console.log('creating article:', data.title )
-  articles.appendChild(createArticle(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
-})
+  console.log('creating article:', data.title);
+  articles.appendChild(createArticle(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph));
+});
 
 
 function createArticle(title, date, para1, para2, para3) {
   //use createElement to make new elements on the DOM
   const article = document.createElement('div');
-  const articleTitle = document.createElement('h2')
-  const paraDate = document.createElement('p')
-  const paraOne = document.createElement('p') 
-  const paraTwo = document.createElement('p') 
-  const paraThree = document.createElement('p') 
-  const button = document.createElement('span')
+  const articleTitle = document.createElement('h2');
+  const paraDate = document.createElement('p');
+  const paraOne = document.createElement('p');
+  const paraTwo = document.createElement('p');
+  const paraThree = document.createElement('p');
+  const buttons = document.createElement('span');
 
   //Set up structure of elements so they appear in DOM
-  article.appendChild(articleTitle)
-  article.appendChild(paraDate)
-  article.appendChild(paraOne)
-  article.appendChild(paraTwo)
-  article.appendChild(paraThree)
-  article.appendChild(button)
+  article.appendChild(articleTitle);
+  article.appendChild(paraDate);
+  article.appendChild(paraOne);
+  article.appendChild(paraTwo);
+  article.appendChild(paraThree);
+  article.appendChild(buttons);
 
   //Set class names:
-  article.classList.add('article')
-  paraDate.classList.add('date')
-  button.classList.add('expandButton')
+  article.classList.add('article');
+  paraDate.classList.add('date');
+  buttons.classList.add('expandButton');
 
-  //Set text content
-  articleTitle.textContent = title
-  paraDate.textContent = date
-  paraOne.textContent = para1
-  paraTwo.textContent = para2
-  paraThree.textContent = para3
+  //Set text content/
+  articleTitle.textContent = title;
+  paraDate.textContent = date;
+  paraOne.textContent = para1;
+  paraTwo.textContent = para2;
+  paraThree.textContent = para3;
+  buttons.textContent = 'Click to Expand';
+  
 
-//Returns the DOM ELEMENT (makes above items visible) when function is called.
-  return article
+  buttons.addEventListener('click', event => {
+    console.log('button clicked', event.target);
+    buttons.classList.toggle('close');
+    article.classList.toggle('article-open');
+    if(buttons.textContent === 'Click to Expand') {
+      buttons.textContent = "Click to Close";
+    } else {
+      buttons.textContent = 'Click to Expand';
+    }
+  });
+
+  //Returns the DOM ELEMENT (makes above items visible) when function is called.
+  return article;
 }
 
