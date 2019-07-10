@@ -85,7 +85,32 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: `Bootstrap and it's Components`,
+    date: 'Nov 7th, 2017',
+    firstParagraph: `Cat ipsum dolor sit amet, spend six hours per day washing, but still have a crusty butthole. Jump five feet
+    high and sideways when a shadow moves. Attack the dog then pretend like nothing happened. Kitty poochy stretch,
+    dead stare with ears cocked but slap kitten brother with paw so love blinks and purr purr purr purr yawn. Good
+    now the other hand, too murf pratt ungow ungow mice so the door is opening! how exciting oh, it's you, meh and
+    soft kitty warm kitty little ball of furr. Love meowzer. `,
+
+    secondParagraph: `Stare at imaginary bug cat cat moo moo lick ears lick
+    paws and claw drapes. Have secret plans. Scratch my tummy actually i hate you now fight me. Find box a little
+    too small and curl up with fur hanging out kitty power love you. I just saw other cats inside the house and
+    nobody ask me before using my litter box stare at ceiling light so scamper. Love and coo around boyfriend who
+    purrs and makes the perfect moonlight eyes so i can purr and swat the glittery gleaming yarn to him (the yarn is
+    from a $125 sweater`,
+
+    thirdParagraph: `Fight an alligator and win lick butt and make a weird face so when owners are asleep, cry for no apparent
+    reason, pet right here, no not there, here, no fool, right here that other cat smells funny you should really
+    give me all the treats because i smell the best and omg you finally got the right spot and i love you right now.
+    Enslave the hooman use lap as chair always ensure to lay down in such a manner that tail can lightly brush
+    human's nose for fart in owners food and my cat stared at me he was sipping his tea, too. Ooooh feather moving
+    feather! `
   }
+  
+  
 ];
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
@@ -155,7 +180,6 @@ function createArticle(title, date, para1, para2, para3) {
 
   buttons.addEventListener('click', event => {
     console.log('button clicked', event.target);
-    buttons.classList.toggle('close');
     article.classList.toggle('article-open');
     if(buttons.textContent === 'Click to Expand') {
       buttons.textContent = "Click to Close";
