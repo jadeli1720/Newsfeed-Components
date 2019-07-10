@@ -126,13 +126,17 @@ function createArticle(title, date, para1, para2, para3) {
   const article = document.createElement('div');
   const articleTitle = document.createElement('h2')
   const paraDate = document.createElement('p')
-  // const paragraph = document.createElement('p') //There will be 3. Do I need to create them individually here?
+  const paraOne = document.createElement('p') 
+  const paraTwo = document.createElement('p') 
+  const paraThree = document.createElement('p') 
   const button = document.createElement('span')
 
   //Set up structure of elements so they appear in DOM
   article.appendChild(articleTitle)
   article.appendChild(paraDate)
-  // paraDate.appendChild(paragraph)
+  article.appendChild(paraOne)
+  article.appendChild(paraTwo)
+  article.appendChild(paraThree)
   article.appendChild(button)
 
   //Set class names:
@@ -143,6 +147,9 @@ function createArticle(title, date, para1, para2, para3) {
   //Set text content
   articleTitle.textContent = title
   paraDate.textContent = date
+  paraOne.textContent = para1
+  paraTwo.textContent = para2
+  paraThree.textContent = para3
 
 //Returns the DOM ELEMENT (makes above items visible) when function is called.
   return article
