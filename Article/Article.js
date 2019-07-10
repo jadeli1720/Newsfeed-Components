@@ -89,7 +89,7 @@ const data = [
 ];
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
-  
+TEMPLATE:
   <div class="article">
     <h2>{title of the article}</h2>
     <p class="date">{date of the article}</p>
@@ -112,3 +112,31 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 
 */
+
+const articles = document.querySelector('.articles')
+
+articles.appendChild(createArticle())
+
+function createArticle() {
+  //use createElement to make new elements on the DOM
+  const article = document.createElement('div');
+  const title = document.createElement('h2')
+  const paraDate = document.createElement('p')
+  // const paragraph = document.createElement('p') //There will be 3. Do I need to create them individually here?
+  const button = document.createElement('span')
+
+  //Set up structure of elements so they apper in DOM
+  article.appendChild(title)
+  article.appendChild(paraDate)
+  // paraDate.appendChild(paragraph)
+  article.appendChild(button)
+
+  //Set class names:
+  article.classList.add('article')
+  paraDate.classList.add('date')
+  button.classList.add('expandButton')
+
+//Returns the DOM ELEMENT (makes above items visible) when function is called.
+  return article
+}
+
